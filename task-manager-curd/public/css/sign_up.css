@@ -1,0 +1,88 @@
+.main{ 
+    padding:20px; 
+    font-family: 'Helvetica', serif; 
+    box-shadow: 5px 5px 7px 5px #888888; 
+      
+} 
+ .main h1{ 
+    font-size: 40px; 
+    text-align:center; 
+    font-family: 'Helvetica', serif; 
+
+    
+      
+}  
+legend{ 
+    font-family: 'Helvetica', serif; 
+    width: 100%; 
+    font-size: 20px; 
+    padding: 12px 2px; 
+    margin: 8px 0; 
+    border: none; 
+    border-bottom: 2px solid #767474; 
+   
+}
+
+button[type=submit] { 
+    font-family: 'Helvetica', serif; 
+    width: 100%; 
+    background-color: #767474; 
+    border: none; 
+    color: white; 
+    padding: 16px 32px; 
+    margin: 4px 2px; 
+    border-radius: 10px; 
+    
+} 
+
+.container {
+    display: flex;
+    justify-content: center;
+    box-shadow: 5px 5px 7px 5px #888888; 
+    border: 2px solid black
+   
+  }
+
+/* The alert message box */
+.alert {
+    padding: 20px;
+    background-color: #f44336; /* Red */
+    color: white;
+    margin-bottom: 15px;
+  }
+  /* The close button */
+  .closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  /* When moving the mouse over the close button */
+  .closebtn:hover {
+    color: black;
+  }
+
+  .input-icon {
+    position: relative;
+  }
+  
+  .input-icon > i {
+    position: absolute;
+    display: block;
+    transform: translate(0, -50%);
+    top: 72%;
+    pointer-events: none;
+    width: 25px;
+    text-align: center;
+    font-style: normal;
+  }
+  
+  .input-icon > input {
+    padding-left: 25px;
+    padding-right: 0;
+  }
+  

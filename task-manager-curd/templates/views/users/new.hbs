@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  {{!-- <head> --}}
+     {{>header}}
+       
+      <link rel="stylesheet" href="/css/sign_up.css" > 
+             <title>Add user</title>
+     <br>
+     <br>
+     <br>
+  <body>
+
+
+        
+    <div class = "container" >                 
+        
+     <form role="form" method="post" action="/users" id="reused_users_form" >
+     <div class="row"> </div>     
+     <br>
+                     <h4><center>Add User</center></h4>
+ <button type="reset" id="btnSubmit008" value="Submit" class="btn btn-primary" >Clear</button>                      
+    
+<div class="form-row"> 
+<div class="form-group col-md-6"> 
+      <label for="First_Name">Name</label>
+      <input type="text" class="form-control" name="name" id="name" placeholder="name" required/>
+</div> 
+
+<div class="form-group col-md-6">
+      <label for="User_Email">User_Email</label>
+      <input type="email" class="form-control" name="email" id="email" placeholder="Enter Unique Email address ."/ required>      
+</div>   
+
+                       
+<div class="form-group col-md-6">  
+      <label for="age">Age <font color="red">( at least 2 characters)</font></label>
+      <input type="number" class="form-control" name="age" id="age"  placeholder="Enter age." required/>
+</div>
+
+<div class="form-group col-md-6">  
+      <label for="password">Password <font color="red">( at least 8 characters)</font></label>
+      <input type="password" class="form-control" name="password" id="password"  placeholder="Enter your password."  required/>
+</div>   
+
+<div class="form-group col-md-6">
+            <button type="submit" id="btnSubmit001" class="btn btn-primary" value="Submit">Submit</button>
+</div>
+
+
+</form>
+
+
+
+
+   <script src="https://cdn.jsdelivr.net/autonumeric/2.0.0/autoNumeric.min.js"></script>
+
+   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+    crossorigin="anonymous"></script>
+
+
+  </body>
+  
+</html
+
