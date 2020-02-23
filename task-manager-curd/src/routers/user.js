@@ -12,8 +12,8 @@ const router = new express.Router()
 //-------------------------------home page------------------------------------------
 router.get('', (req, res) => {
     res.render('index', {
-        title: 'Check4DigiT',
-        name: 'Axson Engineering DataBase'
+        title: 'task crud',
+        name: 'CRUD database'
     })
 })
 
