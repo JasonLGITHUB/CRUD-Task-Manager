@@ -94,7 +94,8 @@ router.post('/users/logoutAll', auth, async (req, res) => {
     try {
         req.user.tokens = []
         await req.user.save()
-        res.send()
+        //res.send()
+        res.redirect('/')
     } catch (e) {
         res.status(500).send()
     }
@@ -178,7 +179,8 @@ router.post('/users/:id/update', auth, async (req, res) => {
 router.get('/users/me/delete', auth, async (req, res) => {  //----------delete user
     try {
         await req.user.remove()
-        res.send(req.user)
+        //res.send(req.user)
+        res.redirect('/')
     } catch (e) {
         res.status(500).send()
     }
