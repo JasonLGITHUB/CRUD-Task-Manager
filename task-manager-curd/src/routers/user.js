@@ -112,60 +112,14 @@ router.post('/users/:id/update', auth, async (req, res) => {    //------"patch" 
     try { 
         updates.forEach((update) => req.user[update] = req.body[update])
         await req.user.save()
-        res.send(req.user)
+       // res.send(req.user)
+        res.redirect('/users/me')
     } catch (e) {
         res.status(400).send(e)
     }
 })
-//----------------------------------------"User validation failed: _id: Cast to ObjectID failed for value "" at path "_id"", !!-----why ?--------------------
 
-// router.post("/users/me/update", auth,(req, res, next) => {
-//      const id = req.params.id;
-   
-//      const updateOps = {};
-//     for (const ops of Object.keys(req.body)) {
-//       updateOps[ops.name] = ops.value;
-//     }
-//     User.update({ _id: id }, { $set: updateOps })
-   
-//       .exec()
-//       .then(result => {
-//         console.log(result);
-//         res.status(200).json(result);
-//       })
-//       .catch(err => {
-//         console.log(err);
-//         res.status(500).json({
-//           error: err
-//         });
-//       });
-//   });
-//----------------------------------------------------------------ok:0 modify:0 n:0------------------------------------------------------
-// router.post("/users/me/update", auth, (req,res) => {      
-
-//     const id = Object.keys(req.body._id)
-//    User.findByIdAndUpdate({_id:id},Object.keys(req.body),{new:true},(err,doc) => {
-//         if(!err){
-//             res.redirect('users/me');
-//         }
-//         else{
-//             if(err.name == "ValidationError")
-//             {
-//                 handleValidationError(err,req.body);
-//                 res.render("users/newup",{
-//                     viewTitle:'Update User',
-//                     user:req.body
-//                 });
-//             }
-//             else{
-//                 console.log("Error occured in Updating the records" + err);
-//             }
-//         }
-//     })
-// })
-//----CastError: Cast to ObjectId failed for value "{ _id: '' }" at path "_id" for model "User"--//
-
-//-------------------------------Delete user/me -------------------------------------------------
+//-------------------------------Delete users/me -------------------------------------------------
 router.get('/users/me/delete', auth, async (req, res) => {  //----------delete user
     try {
         await req.user.remove()
