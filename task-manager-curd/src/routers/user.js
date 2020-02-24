@@ -16,19 +16,7 @@ router.get('', (req, res) => {
         name: 'CRUD database'
     })
 })
-
-router.get('/succ', (req, res) => {
-    res.render('succ', { user: new User() }) //render templates/succ.hbs
-  })
-//----------------------------------------------------- below add new user--------------------
-router.get('/as_agent', (req, res) => {
-    res.render('users/as_agent', { user: new User() }) //render templates/users/new.hbs
-  })
-
-  router.get('/error', (req, res) => {
-    res.render('users/errorPage', { user: new User(), title: 'Error messages', success: req.session.success, errors: req.session.errors }) //render templates/users/new.hbs
-    req.session.errors = null;
-  })
+//------------------------add user--------------------------------------------------
 
 router.get('/newuser', (req, res) => {
     res.render('users/new', { user: new User() }) //render templates/users/new.hbs
@@ -48,7 +36,7 @@ router.get('/newuser', (req, res) => {
         res.status(400).send(e)
     }
 })
-
+//-------------------------------------------login-------------------------------
 router.get('/users/login', (req, res) => {
     res.render('users/login', { user: new User() }) //render users/login.hbs
   })
@@ -68,7 +56,7 @@ router.post('/users/login', async (req, res) => {
     }
     
 })
-
+//------------------------------------------logout-------------------------------
 router.get('/users/logout', (req, res) => {
     res.render('users/logout', { user: new User() }) //render users/logout.hbs
   
@@ -86,7 +74,7 @@ router.post('/users/logout', auth, async (req, res) => {
         res.status(500).send()
     }
 })
-
+//------------------------------------------------------logout All----------------
 router.get('/users/logoutAll', (req, res) => {
     res.render('users/logoutAll', { user: new User() }) //render users/logout.hbs  
   })
@@ -100,7 +88,7 @@ router.post('/users/logoutAll', auth, async (req, res) => {
         res.status(500).send()
     }
 })
-
+//-------------------------------------profile-------------------------------------------
 router.get('/users/me', auth, async (req, res) => {
     // res.send(req.user)
      res.render('users/user-me', {'myProfile' : req.user}) //  User profile data table 
@@ -110,8 +98,8 @@ router.get('/users/:id/update', auth, async (req, res) => {
     // res.send(req.user)
      res.render('users/user_me_patch', {'myProfile' : req.user})     // user profile update UI form 
 })
-
-router.post('/users/:id/update', auth, async (req, res) => {
+//--------------------------------------------patch-----------------------------------------------------
+router.post('/users/:id/update', auth, async (req, res) => {    //------"patch" not work----------- 
     const updates = Object.keys(req.body)
     const allowedUpdates = ['_id','name', 'email', 'password', 'age']   // if there is no '_id ', is not valid...false
     console.log(updates)
@@ -175,7 +163,9 @@ router.post('/users/:id/update', auth, async (req, res) => {
 //         }
 //     })
 // })
-//---------------------------------------CastError: Cast to ObjectId failed for value "{ _id: '' }" at path "_id" for model "User"---?---//
+//----CastError: Cast to ObjectId failed for value "{ _id: '' }" at path "_id" for model "User"--//
+
+//-------------------------------Delete user/me -------------------------------------------------
 router.get('/users/me/delete', auth, async (req, res) => {  //----------delete user
     try {
         await req.user.remove()
